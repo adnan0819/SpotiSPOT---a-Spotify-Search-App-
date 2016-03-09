@@ -1,0 +1,121 @@
+
+<html>
+<head>
+  <title>Spotify Search Engine by Adnan Firoze (af2728)</title>
+      <link rel="stylesheet" type="text/css" href="bootstrap.css">
+
+    	<link rel="stylesheet" type="text/css" href="my_code.css">
+<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+                <script type="text/javascript" src="oauth.js"></script>
+<script type="text/javascript" src='my_code.js'></script>
+              <script type='text/javascript' src="handlebars.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="cached.css">
+  <link rel="stylesheet" type="text/css" href="result-light.css">
+  
+  <!-- for JQueryUI -->
+  <link rel="stylesheet" href="jquery-ui.min.css">
+  <script src="jquery.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  
+  
+</head>
+<body>
+  <div class="container" id="display">
+    <h1>Spoti.SPOT</h1>
+    <h4>Adnan Firoze (af2728)</h4>
+    
+    
+    <p>Type anything that can be a song name, artist's name, genre, year or album name and click on "Search". 
+    <form id="search-form">
+        <input type="text" id="query" placeholder="Type anything e.g. song name, artist, genre or album." value="" class="form-control"/>
+     <div id="advancedLink" class="adv">
+     Want to drill down and be more specific? <a href"#" id="advanced">Advanced Search.</a>
+     </div>
+         
+        <input type="text" id="artist_name" value="" class="form-control" placeholder="Type an Artist Name"/>
+        
+        <input type="text" id="album_name" value="" class="form-control" placeholder="Type Album Name"/>
+        
+        <input type="text" id="genre_name" value="" class="form-control" placeholder="Type Genre"/>
+        <div id="sliderThing">
+        <p>
+  <label for="year">Year range:</label>
+  <input type="text" id="year" >
+</p>
+        <div id="slider-range"></div>
+		<a href="#" id="basic">Back to basics</a>
+        </div>
+        <a></a>
+        <input type="submit" id="search" class="btn btn-primary" alt="Search" value="Search" />
+        
+    </form>
+      
+    
+
+    <div id="results" class="wrapper"></div>
+</div>
+
+<script id="results-template" type="text/x-handlebars-template">
+<table class="table table-striped">
+
+<thead>
+{{#unless tracks.total }}
+    <tr><div id="noResult"><tr>Oops! Nothing found. Maybe drill down using the filters? </div> </tr>
+{{else}}
+    
+	{{#ifCond tracks.offset ">=" tracks.total }}
+    	<tr><div id="numResult"><tr>Showing results {{addition tracks.offset to=1}} to {{ tracks.total }} of {{tracks.total}} tracks.</div> </tr> 
+
+{{else}}
+    <tr><div id="numResult"><tr>Showing results {{addition tracks.offset to=1}} to {{ addition tracks.offset to = tracks.limit }} of {{tracks.total}} tracks.</div> </tr> 
+
+	{{/ifCond}}
+
+	
+	
+<tr>
+<th>Preview & Cover</th>
+<th>Track Name</th>
+<th>Artist</th>
+<th>Album</th>
+<th>Popularity (out of 100)</th>
+
+</tr>
+
+{{/unless}}
+
+</thead>
+<tbody>
+{{#each tracks.items}}
+<tr>
+<td><img src="play-button.png" width="200" height="200" border="0" alt={{name}} style="background:url({{album.images.0.url}}) center center ; />
+    <div style="background-image:url({{album.images.0.url}})" data-album-id="{{id}} " "alt: {{name}}" class="cover"></div></td>
+	
+<td>{{ name }}</td>
+<td>{{ artists.0.name }}</td>
+<td>{{ album.name }}</td>
+<td>{{ popularity }}</td>
+
+</tr>
+{{/each}}
+</tbody>
+</table>
+ 	 </script>
+  	 </div>
+<div class="container">
+<form id="search-form2">
+        <input type="submit" id="next" class="btn btn-primary" alt="Next" value="Next" />
+    </form> 
+	
+	<form id="search-form3">
+        
+    </form><input type="submit" id="prev" class="btn btn-primary" alt="Previous" value="Previous" />
+    </form> 
+<a id="toTop" href="#">Back to top</a>
+	</div> 
+	
+
+</body>
+
+</html>
+

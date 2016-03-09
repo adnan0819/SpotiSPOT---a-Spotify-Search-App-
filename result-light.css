@@ -1,0 +1,55 @@
+ {{#each tracks.items}}
+    
+    <img src="play-button.png" width="120" height="120" border="0" alt={{name}} style="background:url({{album.images.0.url}}) center center white ; />
+    <div style="background-image:url({{album.images.0.url}})" data-album-id="{{id}} " "alt: {{name}}" class="cover"></div>
+            
+    <p>
+    Track: {{name}}
+    Artist(s): {{artists.0.name}}
+    </p>  
+      </div>
+     
+     {{/each}}
+  
+
+
+  <script language="javascript" type="text/javascript">
+    var i=0;
+    var coverImages[];
+    var artistList[];
+    coverImages[i]={{album.images.0.url}};
+    artistList[i]={{artists.0.name}};
+    nameList[i]={{artists.0.name}};
+        i++;
+        console.log("Cover URL Array");
+      console.log(coverImages);
+      console.log(i);
+    </script>
+
+
+
+
+
+    <div style="" id="caption">
+        Track: {{name}}
+        Artist(s): {{artists.0.name}}
+    </div>
+
+#overlay {
+	background-image:url(play-button.png)
+	position:relative;
+    -moz-opacity:.50;
+    opacity:.50;
+    filter:alpha(opacity=50);
+    display:inline-block;
+    background-size: cover;
+    z-index:100;
+    width:300px;
+    height:300px;
+
+}
+	
+#overlay:hover {
+    cursor: pointer;
+	z-index=20;
+ }
