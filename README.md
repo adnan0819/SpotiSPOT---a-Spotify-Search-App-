@@ -20,25 +20,4 @@ Step 2: Simply open “index.html” in your browser (and please make sure you h
 Step 3: In the “Advanced Search” mode, you can slide the sliders to define range of year.
 Explanation: The ‘advanced search’ works on an AND logic. Say you search for ‘Nirvana’ with the year range 1900-present year. You would get 1523 songs (with other artists with the word Nirvana in it like “Approaching Nirvana”. Now, if we use the slider to narrow down to 2012- 2015, we will get 398 songs.
 
-* learn how to consume a long-lived HTTP stream
-* learn how to poll an API and watch for changes
-* learn how to connect command line tools using pipes
-* be introduced to the `jq` and `websocketd` tools
-* learn how to consume from a websocket inside a browser using javascript
-
-roughly, our schedule looks like
-
-* curl the bitly stream
-* discuss how we are receiveing data
-* quickly review pipes, and meet `jq`
-* make a websocket server using `websocketd`
-* log the stream in the browser's console log
-
-**BREAK**
-
-* curl the citibike API
-* do the same with python
-* detect changes to citibike stations, serve via websocket
-* build a page, served with a python simple server, that uses d3 to modify DOM elements in the browser
-
-We'll finish by talking about the exercise.
+# See Readme.pdf for screenshots
